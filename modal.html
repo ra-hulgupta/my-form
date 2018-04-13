@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>job recruiter form</h2>
+  <div class="btn-group btn-group-justified">
+    <div class="btn-group">
+      <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Specific info</button>
+    </div>
+    
+    <div class="btn-group">
+      <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">General details</button>
+    </div>
+    
+    <div class="btn-group">
+        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">3<sup>rd</sup> section</button>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+    <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Specific info</h4>
+        </div>
+        <div class="modal-body jumbotron">
+         <form class="form-horizontal" action="post" enctype="multipart/form-data">
+          
+
+          <div class="form-group"  onMouseOver="this.style.border='1px solid rgba(50,150,70,0.5)'" onMouseOut="this.style.border='none'">
+          <label for="check1"><span><i class="glyphicon glyphicon-user"></i></span>Type of work</label><br><br>
+          <lable><input type="checkbox" name="check1" value="part time">Part time</lable><br>
+          <lable><input type="checkbox" name="check1" value="full time">full time</lable><br>
+          <lable><input type="checkbox" name="check1" value="intern">Intern</lable><br>
+          <lable><input type="checkbox" name="check1" value="work from home">work from home</lable><br>
+          <lable><input type="checkbox" name="check1" value="live project">live project</lable><br>
+          <lable><input type="checkbox" name="check1" value="cotractual">contractual</lable><br>
+          </div>
+
+          <div class="form-group" onMouseOver="this.style.border='1px solid rgba(50,150,70,0.5)'" onMouseOut="this.style.border='none'">
+            <label><input type="checkbox" id="yeargap" name="checkbox for year gap" value="yes" onclick="myfunction()"><mark>Are you willing application from candidate who have taken gap?</mark></label>
+      
+            <div id="option" style="display:none;"> 
+
+            <label><input type="radio" name="gaps" value="1_2">is it of 2yrs?</label><br>
+            <label><input type="radio" name="gaps" value="2_4">is it of 4yrs?</label><br>
+            <label><input type="radio" name="gaps" value="4_6">is it of 6yrs?</label><br>      
+            </div>
+          </div><br>
+        
+        <div style="border-bottom:5px solid rgba(211,30,30,0.5);width:100%;"></div><br>
+
+        <div class="form-group" onMouseOver="this.style.border='1px solid rgba(50,150,70,0.5)'" onMouseOut="this.style.border='none'">
+        <span class="glyphicon glyphicon-shopping-cart" style="float:left;"></span><p>&nbsp;<b>Preferences</b></p><br>
+        <div style="align-content:center;padding:25px;">
+        <ul type="disk">
+            <li><b>gender</b><br></li>
+        <label><input type="checkbox" name="checkmale" value="male" checked>Male</label><br>
+        <label><input type="checkbox" name="checkfemale" value="female">Female</label><br>
+        <label><input type="checkbox" name="checkother" value="other">other</label><br><br>
+        
+            <li><b>Add Languages</b></li><br>
+         <p>press <abbr>ctrl</abbr><code>+</code>click to select multiple options</p><br>
+         <select name="languages" multiple required>
+         <option value='english' selected>English</option>
+         <option value='hindi'>Hindi</option>
+         <option value='malyalam'>Malyalam</option>
+         <option value='marathi'>Marathi</option>
+         <option value="gujrati">gujrati</option>
+         <option value="bengali">bengali</option>
+        </select>
+          </ul>
+      </div>
+      <div>
+            <input type="file" name="my_file[]" multiple>
+            <input type="submit" value="Upload">
+        </div>
+    </div>
+
+        <div class="modal-footer" style="background-color:#f1f1f1;">
+            <div type="submit" class="btn btn-link" style="float:left;" onMouseOver="this.style.border='1px solid rgba(50,150,70,0.5)'" onMouseOut="this.style.border='none'">Submit</div>
+          <div class="checkbox">
+          <label><input type="checkbox" name="remember" checked> Remember me</label>
+          </div>
+          
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+<script>
+function myfunction() {
+    var checkBox = document.getElementById("yeargap");
+    var options = document.getElementById("option");
+    if (checkBox.checked == true){
+        option.style.display = "block";
+    } else {
+       option.style.display = "none";
+    }
+}
+</script>
+</body>
+</html>
