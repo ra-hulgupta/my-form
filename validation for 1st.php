@@ -7,7 +7,7 @@ session_start();
 <head>
 
 <?php
-  if (true) //if every thing is fine then it will send a variable with value 1 
+  if ($_SERVER['REQUEST_METHOD'] == 'POST') //if every thing is fine then it will send a variable with value 1 
     {
       $a=1;
         $_SESSION['variable1'] = $a;
@@ -18,11 +18,13 @@ session_start();
       { 
         $a=0;
         $_SESSION['variable1'] = $a;
+        $_SESSION['variable2'] = $a;
+        $_SESSION['variable3'] = $a;
         //$_SESSION['start']=time();
         //$_SESSION['update']=$_SESSION['start'] + (600);
       }
-
+header("location:./index.php");
    ?>
-<meta http-equiv="refresh" content="2; URL='./index.php'"/> 
+
 </head>
 </html>

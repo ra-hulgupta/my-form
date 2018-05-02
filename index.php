@@ -7,49 +7,27 @@
 }
     }*/
     session_start();
-    if(isset($_SESSION['variable1']))
+        if (!isset($_SESSION['views'])) { 
+                 $_SESSION['views'] = 0;}
+
+            $_SESSION['views'] += 1;
+
+        if ($_SESSION['views'] == 1) {
+            header("location:./validation for 1st.php");
+              }         
+    if($_SESSION['variable1'] == 1)
       echo "<style> .signal1{    background-color: #5cb85c !important;
                                 }
                                 </style>";              
-    if(isset($_SESSION['variable2']))
+    if($_SESSION['variable2'] == 1)
       echo "<style> .signal2{    background-color: #5cb85c !important;
                                 }
-                                </style>";              
-    else{?>
-           <script>
-            $(document).ready(function(){
-             $(document).find("#todisable1").on({
-            
-        mouseenter: function(){
-            $(this).attr("disabled","disabled");
-        },  
-        mouseleave: function(){
-            $(this).removeAttr("disabled");
-            }
-          });
-           });
-            }
-           </script>
-        <?php }
+                                </style>";
 
-    if(isset($_SESSION['variable3']))
+    if($_SESSION['variable3'] == 1)
       echo "<style> .signal3{    background-color: #5cb85c !important;
                                 }
-                                </style>";
-     else{?>
-           <script>
-             $(document).ready(function(){ 
-              $(document).find("#todisable2").on({
-        mouseenter: function(){
-            $(this).attr("disabled","disabled");
-        },  
-        mouseleave: function(){
-            $(this).removeAttr("disabled");
-            }
-          });
-            });
-           </script>
-        <?php }    
+                                </style>"    
         ?> 
 <!DOCTYPE html>
 <html lang="en">
@@ -71,17 +49,17 @@
   <h2>Job recruiter form</h2>
   <div class="btn-group btn-group-justified">
     <div class="btn-group">
-      <button type="button" class="btn btn-info signal1" data-toggle="modal" data-target="#myModal1">Specific info
+      <button type="button"  class="btn btn-info signal1" data-toggle="modal" data-target="#myModal1">Specific info
         </button>
     </div>
     
     <div class="btn-group">
-      <button type="button" id="todisable1" class="btn btn-info signal2" data-toggle="modal" data-target="#myModal2">General details
+      <button type="button" id="todisable2" class="btn btn-info signal2" data-toggle="modal" data-target="#myModal2">General details
       </button>
     </div>
     
     <div class="btn-group">
-        <button type="button" id="todisable2" class="btn btn-info signal3" data-toggle="modal" data-target="#myModal3">Earning Opportunities
+        <button type="button" id="todisable3" class="btn btn-info signal3" data-toggle="modal" data-target="#myModal3">Earning Opportunities
       </button>
     </div>
   </div>
@@ -171,7 +149,7 @@
           <div class="container-fluid">
             <div class="row">
              <div class="col-sm-4">
-            <input type="submit" class="btn btn-link" style="float:left;" 
+            <input id="submit3" type="submit" class="btn btn-link" style="float:left;" 
             onMouseOver="this.style.border='1px solid rgba(255,0,0,1)'" onMouseOut="this.style.border='none'">.</div>
             <div class="col-sm-4"><a class="btn btn-link" href="./destroysession.php" role="button">Fresh form start</a></div> 
             <div class="col-sm-4"><label><input type="checkbox" name="remember" checked>Remember me</label></div>
@@ -254,7 +232,7 @@
             <div class="container-fluid"> 
             <div class="row">
              <div class="col-sm-4">
-            <input type="submit" class="btn btn-link" style="float:left;" 
+            <input id="submit2" type="submit" class="btn btn-link" style="float:left;" 
             onMouseOver="this.style.border='1px solid rgba(255,0,0,1)'" onMouseOut="this.style.border='none'">.</div>
             <div class="col-sm-4"><a class="btn btn-link" href="./destroysession.php" role="button">Fresh form start</a></div> 
             <div class="col-sm-4"><label><input type="checkbox" name="remember" checked>Remember me</label></div>
@@ -324,7 +302,7 @@
             <div class="container-fluid"> 
             <div class="row">
              <div class="col-sm-4">
-            <input type="submit" class="btn btn-link" style="float:left;" 
+            <input id="submit3" type="submit" class="btn btn-link" style="float:left;" 
             onMouseOver="this.style.border='1px solid rgba(255,0,0,1)'" onMouseOut="this.style.border='none'">.</div>
             <div class="col-sm-4"><a class="btn btn-link" href="./destroysession.php" role="button">Fresh form start</a></div> 
             <div class="col-sm-4"><label><input type="checkbox" name="remember" checked>Remember me</label></div>
@@ -332,7 +310,7 @@
         </div></div>
     </form>
   </div></div></div></div></div>
-
+  
 <script type="text/javascript">
 $("document").ready(function() {
    var last_selected_location=null;
@@ -449,6 +427,33 @@ $(document).ready(function(){
         $(this).css("background-color", "#ffffff");
     });
   });
+</script>
+
+<script>
+  var session2='<?php echo $_SESSION['variable1']; ?>';
+      $(document).ready(function(){
+        $("#todisable2").on({
+          mouseenter:function () {
+            if(session2 == 0){
+              alert('first fill the 1st part of the form');
+            $(this).attr("disabled","disabled");}
+             }
+              });
+                });
+           </script>
+  
+<script type="text/javascript">
+  var session3='<?php echo $_SESSION['variable1']; ?>';
+  var session4='<?php echo $_SESSION['variable2']; ?>';
+    $(document).ready(function(){
+     $("#todisable3").on({
+           mouseenter:function(){
+            if(session3 == 0 || session4 == 0){
+              alert('first fill the 1st and 2nd part of the form');
+              $(this).attr("disabled","disabled");}
+           }
+        });
+ });
 </script>
 </body>
 </html>
